@@ -2,7 +2,15 @@ import { Hono } from '@hono/hono';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js';
 import { getFirestore,collection,addDoc,getDocs, doc,getDoc } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js';
 
-const firebaseConfig = Deno.env.get('FIREBASE_CONFIG');
+const firebaseConfig = {
+  apiKey: Deno.env.get('apiKey'),
+  authDomain: Deno.env.get('authDomain'),
+  projectId: Deno.env.get('projectId'),
+  storageBucket: Deno.env.get('storageBucket'),
+  messagingSenderId: Deno.env.get('messagingSenderId'),
+  appId: Deno.env.get('appId'),
+};
+
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
